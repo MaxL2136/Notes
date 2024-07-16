@@ -33,3 +33,18 @@ blank.append(email2[1].split('.')[1])
 print(blank)
 ```
 input(Something) displays Something for the user and reads user input. \n adds a new line
+```
+#Branching if Statement 
+  1 #!/usr/bin/env python3
+  2 num = int(input('Please Enter a Number: \n'))
+  3 
+  4 if num % 5 == 0 and num % 3 == 0:
+  5     print('fizzbuzz')
+  6 elif num % 3 == 0:
+  7     print('fizz')
+  8 elif num % 5 == 0:
+  9     print('buzz')
+ 10 else:
+ 11     print(num)
+``` 
+.upper() for uppercase, .lower() for lowercase
