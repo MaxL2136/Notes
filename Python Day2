@@ -1,1 +1,35 @@
+0 index position using [] 0 first posiion, -1 last position. 
+tuple () uses perenthisis immuteable, list () usues brackets muteable 
+'string'.join(list) adds first string between everything in list 
+string.split(e) creates a list by sepertating string at every e, splits by default on spaces
+del to remove item from a list
+'list'.append('new item') appends new item to list
+'{}'.format(string) places the string inbetween the curley brackets | comma can be used to add multiple strings. 
 
+email seperation script  
+```
+  1 email = 'name@domain.com'
+  2 news = email.replace('@', '.')
+  3 new = news.split('.')
+  4 
+  5 print(new)
+```
+```
+#Instructor script
+email = 'name@domain.come'
+email2 = email.split('@')
+email3 = '''.join(email2) 
+print(email3.split('.'))
+```
+```
+#Append
+blank= []
+email = 'name@domain.come'
+email2 = email.split('@')
+email3 = '''.join(email2) 
+blank.append(email2[0])
+blank.append(email2[1].split('.')[0])
+blank.append(email2[1].split('.')[1])
+print(blank)
+```
+input(Something) displays Something for the user and reads user input. \n adds a new line
