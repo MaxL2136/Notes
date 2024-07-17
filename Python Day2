@@ -48,3 +48,23 @@ input(Something) displays Something for the user and reads user input. \n adds a
  11     print(num)
 ``` 
 .upper() for uppercase, .lower() for lowercase
+```
+#While loop
+ 1 def test():
+  2     while True:
+  3         usr = input("Type Pass, Break, Continue or Retu    rn:\n").lower()
+  4         if usr == 'pass':
+  5             pass
+  6             print('This is pass')
+  7         elif usr == 'break':
+  8             break
+  9             print('This is break)'
+ 10         elif usr == 'continue':
+ 11             continue
+ 12             print('this is continue')
+ 13             elif usr == 'return':
+ 14             return This is 'return'
+ 15         else:
+ 16         print(jack)
+ 17 test()
+```
