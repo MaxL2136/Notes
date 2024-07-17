@@ -1,1 +1,42 @@
+```
+#Number guesser 
+ 1 #!/usr/bin/env python3
+  2 
+  3 def guess_number(n):
+  4     pass
+  5     while True:
+  6         usrnum = int(input('Enter a Number between 1 and 100:\n'))
+  7         if usrnum == n:
+  8             print('WIN')
+  9             return False #Break can also be used
+ 10         elif usrnum > n:
+ 11             print('Too High')
+ 12             continue
+ 13         elif usrnum < n:
+ 14             print('Too Low')
+ 15         else:
+ 16             break
+ 17 guess_number(23)
+```
+list(range(10)) 
+list(range(<start>, <stop>, <step>)) 
+range generates number can be typecast into a list in order to be visable.
+###
+len(nums) gives the number of values in a given list
+```
+#Average Calc
+def average(nums):
+  print(sum(nums)/len(nums))
 
+average([23, 34, 2, 423])
+```
+slicing: shows values at given index position 
+nums[<start>:<stop>:<step>] 
+### 
+ord('a') gives ASKII value 
+chr('a') gives alphanumeric from ASKII value
+``` 
+alphabet = []
+for i in range(97, 123):
+  alphabet.append(chr(i))
+# this will add each seperate letter in the alphabet to alphabet
