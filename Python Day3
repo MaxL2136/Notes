@@ -47,3 +47,12 @@ total =0
 for i in order:
  total += inventory[i[0]] * i[1] 
 ```
+#Access and writing a file
+with open("text.txt", 'w') as fp: #'w' for write mode 
+ fp.write('First Line\n')
+ lines = ['Second line\n', 'Third line\n', 'Fourth line\n', 'Last line\n']
+    fp.writelines(lines)
+#Reading a file 
+with open('test.txt, 'r') as outfile:
+ outfile.read() #can use .split to seperate items 
+
