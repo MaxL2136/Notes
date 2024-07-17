@@ -40,3 +40,10 @@ alphabet = []
 for i in range(97, 123):
   alphabet.append(chr(i))
 # this will add each seperate letter in the alphabet to alphabet
+```
+inventory = {'cfb25': 69.99, 'mvp': 149.99, 'hwu': 5}
+order = (['hwu',5],['mvp', 2])
+total =0 
+for i in order:
+ total += inventory[i[0]] * i[1] 
+```
