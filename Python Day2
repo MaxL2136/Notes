@@ -93,3 +93,4 @@ with open('school_prompt.txt', 'r') as fp:
                     p_words.append(word)
                     break
 ```
+(*args) Ignore star, treat it like a normal argument.  kwargs
