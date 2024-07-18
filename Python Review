@@ -56,4 +56,99 @@ def q4(strng):
  64     tuple(tup)
  65     return tuple(tup)
 ```
+68 def q6(catalog, order):
+ 69     '''
+ 70     TLO: 112-SCRPY007, LSA 2
+ 71     Given a dictionary (catalog) whose keys are product names and values are product
+ 72     prices per unit and a list of tuples (order) of product names and quantities,
+ 73     compute and return the total value of the order.
+ 74 
+ 75     Example catalog:
+ 76     {
+ 77         'AMD Ryzen 5 5600X': 289.99,
+ 78         'Intel Core i9-9900K': 363.50,
+ 79         'AMD Ryzen 9 5900X': 569.99
+ 80     }
+ 81 
+ 82     Example order:
+ 83     [
+ 84         ('AMD Ryzen 5 5600X', 5), 
+ 85         ('Intel Core i9-9900K', 3)
+ 86     ]
+ 87 
+ 88     Example result:
+ 89     2540.45 
+ 90 
+ 91     How the above result was computed:
+ 92     (289.99 * 5) + (363.50 * 3)
+ 93     '''
+ 94     total = 0
+ 95     for i in order:
+ 96         total += catalog[i[0]] * i[1]
+ 97 
+ 98     return total
+```
+def q7(filename):
+102     '''
+103     TLO: 112-SCRPY005, LSA 1
+104     Given a filename, open the file and return the length of the first line 
+105     in the file excluding the line terminator.
+106     '''
+107     with open(filename) as fp:
+108         line = len((fp.readline()))
+109         line -= 1
+110     return line
+``` 
+ def q8(filename,lst):
+116     '''
+117     TLO: 112-SCRPY003, LSA 1
+118     TLO: 112-SCRPY004, LSA 1,2
+119     TLO: 112-SCRPY005, LSA 1
+120     Given a filename and a list, write each entry from the list to the file
+121     on separate lines until a case-insensitive entry of "stop" is found in 
+122     the list. If "stop" is not found in the list, write the entire list to 
+123     the file on separate lines.
+124     '''
+125     with open(filename, 'w') as fp:
+126         for i in lst:
+127             if i.lower == 'stop':
+                     break
+                else
+128                  fp.write(i)
+129                  fp.write('\n')
+130             
+```
+def q9(miltime):
+137     '''
+138     TLO: 112-SCRPY003, LSA 1
+139     Given the military time in the argument miltime, return a string 
+140     containing the greeting of the day.
+141     0300-1159 "Good Morning"
+142     1200-1559 "Good Afternoon"
+143     1600-2059 "Good Evening"
+144     2100-0259 "Good Night"
+145     '''
+146     if miltime > 259 and miltime < 1200:
+147         return 'Good Morning'
+148     elif miltime > 1159 and miltime < 1600:
+149         return 'Good Afternoon'
+150     elif miltime > 1559 and miltime < 2100:
+151         return 'Good Evening'
+152     elif miltime > 2059 and miltime < 300:
+153         return 'Good Night'
+```
+def q10(numlist):
+159     '''
+160     TLO: 112-SCRPY003, LSA 1
+161     TLO: 112-SCRPY004, LSA 1
+162     Given the argument numlist as a list of numbers, return True if all 
+163     numbers in the list are NOT negative. If any numbers in the list are
+164     negative, return False.
+165     '''
+166     for i in numlist:
+167         if i < 0:
+168             return False
+169     return True
+
+
 
