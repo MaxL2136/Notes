@@ -149,6 +149,6 @@ def q10(numlist):
 167         if i < 0:
 168             return False
 169     return True
-
-
+###
+'a'.isnumeric() evaluates if a string is numeric 
 
