@@ -25,3 +25,20 @@ find -name \*.txt
 find -atime 3 
   finds anything accesed in the last 3 days | -ctime anything changed | -mtime anything modified  | -<x>min uses miniutes not days
 https://linuxhandbook.com/find-exec-command/
+2>/dev/null 
+  sends error codes to the void
+find /var/log -iname *.log 2>/dev/null -printf "%i %f\n"
+  -printf similar to format in pyhton 
+    \n newline character | %i for indode | %f for file
+       https://phoenixnap.com/kb/bash-printf
+grep 
+  -E, extended grep 
+  -i, case insensitive 
+  -n, shows line numbers 
+  -v, inverts grep search, shows opposite results  
+cat passwd | grep /bin/bash 
+  shows what users have a logon shell 
+Double vs Single Brackets 
+  https://www.baeldung.com/linux/bash-single-vs-double-brackets
+mkdir cosc11{23,45,67}
+  creates 3 directories expanding whats in the brackets to whats before
