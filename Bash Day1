@@ -42,3 +42,12 @@ Double vs Single Brackets
   https://www.baeldung.com/linux/bash-single-vs-double-brackets
 mkdir cosc11{23,45,67}
   creates 3 directories expanding whats in the brackets to whats before
+cat passwd | cut -d: -f1 
+  -d is the delimiter, -f1 is field 1, - om the end of the feild shows everything
+  -s, strict just show lines that have the delimiter
+&& == and
+|| == or
+! == not
+() looked at first
+
+    
