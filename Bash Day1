@@ -1,0 +1,27 @@
+umask
+Shows default permissions 
+chmod 777 
+ls -lisa / ls -1 
+  -lisa gives detailed list, -1 gives one entry per line
+cp <source> <dest>
+/etc/passwd format
+  username:x:UID:GID:::::if shell is given upon login
+more | head | less | tail
+  methods of viewing contents of a file
+find -name <filename>
+  case sensitive search for file | use -iname for case insensitive search
+find -inum <inode#> 
+  searches based on inode #
+find -size <filesize>
+  uses the filesize to locate files 
+find -gid | -uid  
+  shows all files associated with a given gid/uid
+find -maxdepth   
+  tells find how deep to go into the filesystem 
+find / -type d 
+  find all directories starting from base of filesystem | type f for file 
+find -name \*.txt
+  finds anything ending in .txt in current directory
+find -atime 3 
+  finds anything accesed in the last 3 days | -ctime anything changed | -mtime anything modified  | -<x>min uses miniutes not days
+https://linuxhandbook.com/find-exec-command/
