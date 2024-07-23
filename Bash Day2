@@ -1,1 +1,19 @@
-
+awk
+  awk -F: '{print $1}' passwd 
+    prints feild 1 based on : as a delimiter
+  awk -F: '{print$NF}' passwd
+    prints last feild in every line 
+  awk -F: '($3 == 0) {print $1}' /etc/passwd
+    displays 1st field (username) IF the 3rd field (UID) is equal to "0"
+  awk -F: 'BEGIN {OFS="@"} {print $1, $3}'
+    replaces the seperator with whatever is in the OFS quotes 
+  awk -F: '($3 >= 150) {print $0}' /etc/passwd
+    dispays all string data that matches on lines where the third feild is greater than 150
+sort 
+  needs a command outputttng data to sort 
+  -n will sort output numerically 
+  -nr reverse numerically 
+  -k sorts based on coloums 
+  -t seperator in awk
+  cat passwd | sort -k 2 | uniq 
+    sort results based on 2nd coloum, shows only unique results
