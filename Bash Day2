@@ -17,3 +17,14 @@ sort
   -t seperator in awk
   cat passwd | sort -k 2 | uniq 
     sort results based on 2nd coloum, shows only unique results
+Alias
+  renaming a command 
+    ex alias vim = nano
+sed 
+  -e replaces every instance of a given word for the output
+    -e's/chciken/hamburger/g' the g means its global so every instance globally will be changed 
+    without g the first instance is the only one changed 
+    -e '/chciken/d' deletes every line containing the word chicken
+Command Substitution
+  A=$(cat /etc/passwd)
+  echo $A
