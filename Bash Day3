@@ -39,6 +39,14 @@ Grep IP based on how often they occur
     Copy all files in the $HOME/1123 directory, that end in ".txt", and omit files containing a tilde "~" character, to directory $HOME/CUT.
       find $HOME/1123 -type f -name \*.txt ! -name \*~.txt -exec cp {} $HOME/CUT \;
 ```
+    
+    Using find, find all files under the $HOME directory with a .bin extension ONLY.
+    Once the file(s) and their path(s) have been found, remove the file name from the absolute path output.
+    Ensure there is no trailing / at the end of the directory path when outputting to standard output.
+    You may need to sort the output depending on the command(s) you use.
+        find $HOME -name \*.bin | rev | cut -d/ -f2- | rev | sort -u
+
+```
 If Statement 
     #!/bin/bash
     contents=$(cat simple.txt)
