@@ -1,0 +1,38 @@
+tar -czf
+  Creates an archives zip file
+```
+Grep IP based on how often they occur 
+  grep -P -o "(\d{1,3}\.){3}\d{1,3}" StoryHiddenIPs | sort | uniq -c | sort -r
+```
+    Using ONLY the awk command, write a BASH one-liner script that extracts ONLY the names of all the system and user accounts that are not UIDs 0-3.
+    Only display those that use /bin/bash as their default shell.
+    The input file is named $HOME/passwd and is located in the current directory.
+    Output the results to a file called $HOME/SED/names.txt
+      awk -F: '($7 == "/bin/bash")&&($3 >= 4){print $1}' $HOME/passwd > $HOME/SED/names.txt
+```
+    Find all dmesg kernel messages that contain CPU or BIOS (uppercase) in the string, but not usable or reserved (case-insensitive)
+    Print only the msg itself, omitting the bracketed numerical expressions ie: [1.132775]
+      dmesg | grep -P "CPU|BIOS" | grep -P -v -i "usable|reserved" | cut -d] -f2-
+``` 
+    Write a Bash script using "Command Substitution" to replace all passwords, using openssl, from the file $HOME/PASS/shadow.txt with the MD5 encrypted password: Password1234, with salt: bad4u
+    Output of this command should go to the screen/standard output.
+          #!/bin/bash 
+          A=$(openssl passwd -1 -salt bad4u Password1234) 
+          awk -F: -v "new_hash=$A" 'BEGIN {OFS=":"} {$2=new_hash} {print $0}' $HOME/PASS/shadow.txt
+```
+    Using ONLY sed, write all lines from $HOME/passwd into $HOME/PASS/passwd.txt that do not end with either /bin/sh or /bin/false.
+      sed -e '/\/bin\/sh/d' -e '/\/bin\/false/d' $HOME/passwd > $HOME/PASS/passwd.txt
+```
+If Statement 
+    #!/bin/bash
+    contents=$(cat simple.txt)
+    if [[ $contents == "tacos" ]]; then
+        echo"Good on tuesday"
+    elif [[ $contents == "costco is amazing"]]; then
+        echo"and will save you money"
+    elif [[ $contents == "chickenbake" ]]; then 
+        echo"taste good"
+    else 
+        echo"no tax"
+    fi
+```
