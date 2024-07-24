@@ -66,3 +66,6 @@ If Statement
         echo"no tax"
     fi
 ```
+wc -l 
+  wc is wordcount
+  -l gives linecount 
