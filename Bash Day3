@@ -45,6 +45,12 @@ Grep IP based on how often they occur
     Ensure there is no trailing / at the end of the directory path when outputting to standard output.
     You may need to sort the output depending on the command(s) you use.
         find $HOME -name \*.bin | rev | cut -d/ -f2- | rev | sort -u
+```
+     
+    Sort the /etc/passwd file numerically by the GID field.
+    For the 10th entry in the sorted passwd file, get an md5 hash of that entry’s home directory.
+    Output ONLY the MD5 hash of the directory's name to standard output.
+        awk -F: '{print $4":"$6}' /etc/passwd | sort -n | head | tail -1 | cut -d: -f2 | md5sum | cut -d' ' -f1
 
 ```
 If Statement 
