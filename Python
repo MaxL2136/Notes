@@ -1,3 +1,4 @@
-Windows IP: 10.50.40.70 Linux IP: 10.50.25.180, ssh student@10.50.40.70 -X, terminator 
+Bash IP: 10.50.40.70 Win IP: 10.50.25.180, ssh student@10.50.40.70 -X, terminator 
 ## Data Types
 strings have '', "". Type command shows class. 
+xfreerdp /u:student /v:10.50.25.180 -dynamic-resolution +glyph-cache +clipboard
