@@ -1,0 +1,32 @@
+---------------------------------------------------------------------------------------------------DAY 1---------------------------------------------------------------------------------------------------------------------------
+get-command -verb get 
+  -Examples
+  will get all commands using the verb get, -noun will do the same for a given noun
+get-process 
+  PS equivelent to ps -elf
+get-help *log* 
+  -online will open webpage
+get-childitem 
+  -path specifys path
+  -filter, smiilat to grep
+Read-Host
+  prompts for user input
+Get-Process -Name s*
+  Display a list of all running processes that start with the letter "s"
+get-service | where-object {$_.status -eq "running"}
+  displays all running services 
+write-host will not send output down the line, only prints to screen
+write-output will send output down the line
+remove-variable 
+  nukes a variable 
+'single quotes' is literal 
+"double quotes" expand variables 
+```
+PowerShell quoting website 
+  https://www.red-gate.com/simple-talk/sysadmin/powershell/when-to-quote-in-powershell/
+```
+Hash Table websites 
+  https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7.4
+```
+Bracket useage  
+  https://www.tutorialspoint.com/powershell/powershell_brackets.htm
