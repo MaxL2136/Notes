@@ -145,4 +145,15 @@ While Statements
         $num ++
        }until($num -gt 555)    
     ``` 
-
+For Loop 
+    for($num =1; $num -le 3; $num ++){$num}
+    ```
+    for($i =0; $i -le 255; $i ++){
+        Write-Host 192.168.0.$i
+    }
+Writing to a file 
+    Set-Content -path .\example.txt -value "a string"
+Reading a file 
+    Get-Content .\example.txt
+Adding to a file 
+  add-content .\example.txt -Value "Kms" 
