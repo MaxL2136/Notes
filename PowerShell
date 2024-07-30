@@ -103,3 +103,46 @@ If Statement
     else {
         Write-Host "Who am I"
     }
+ForEach Examples 
+    $nums =  1,2,3,4,5 
+    $nums | ForEach-Object{$_ * 2} 
+    ```
+    #Makes all objects in $list to uppercase 
+    $list = 'a', 'b', 'c', 'd'
+    $list | ForEach-Object {$_.toupper()}
+    ```
+    $nums =  1,2,3,4,5 
+    $sum = 0 
+    $nums | ForEach-Object{$sum += $_} 
+    $sum
+    ```
+    #Makes the first name of the 10 objects of a Get-Process uppercase 
+    Get-Process | Select-Object -First 10 | ForEach-Object {$_.Name} | ForEach-Object {$_.toupper()} 
+    ``` 
+    #gets every item in student foler 
+    foreach ($item in gci C:\Users\student -Recurse){$item.name}
+    ```
+    #Puts sportsball infront of each item in teams 
+    $team = "yankees", "fsu", "tigers", "greenjackets"
+    foreach($team in $team){"sportsball $team"}
+While Statements 
+    $var = ""
+    while($var -ne "MUHTH"){
+        $var = Read-Host " what branch in the military is the best" 
+        }
+    ```
+    #While goes until true 
+    $num = 0 
+    do { 
+        $num
+        $num ++
+       }while($num -le 3)
+    ```
+    #until goes until false 
+    $num = 0 
+    do { 
+        $num
+        $num ++
+       }until($num -gt 555)    
+    ``` 
+
