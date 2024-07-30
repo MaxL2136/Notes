@@ -51,7 +51,26 @@ Extend the expression to sort the list by install date, and display only the ins
     Get-HotFix | select InstalledOn, HotFixID | Sort-Object -Property InstalledOn
 Extend the expression further, but this time sort by description, include description, hotfix ID, and install Date.
     Get-HotFix | select Description, InstalledOn, HotFixID | Sort-Object -Property Description
+Finds all .txt files with a length greater than 100 bytes
+    gci C:\ *.txt | Where-Object{$_.length -gt 100}
+Finds processes by companys starting in micro 
+    Get-Process | Where-Object {$_.Company -like 'micro*'}
+Srots processes not containing powershell and sorts decending by id 
+    Get-Process | Where-Object {$_.Name -notlike 'Powershell*'} | Sort-Object id -Descending
 
+    Get-Process | Where-Object proceesname -ne "Idle" | Sort-Object starttime | Select-Object -last 10 | ft processname, starttime
 
+Get-Unique 
+    will only show unique outputs 
+Measures something about system32
+    gci C:\windows\system32 | Measure-Object Length 
+Simple ForEach 
+    $array = 1,2,3,4,5,6
+    $sum = 0
+    $array | ForEach-Object { $sum += $_}
+    $sum
+Compare the Length and name of the two variables 
+    Compare-Object $before $after -Property Length, Name 
+    
 
 
