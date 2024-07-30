@@ -30,3 +30,28 @@ Hash Table websites
 ```
 Bracket useage  
   https://www.tutorialspoint.com/powershell/powershell_brackets.htm
+------------------------------------------------------------------------------------------------DAY 2----------------------------------------------------------------------------------------------------------------------------
+Command Substitution
+  $myblock = {Get-Service | ft name, status} 
+  & $myblock 
+Grouping output
+  Get-Service | Group-Object status
+    sorts get-service by status, running or stopped
+$._ is a placeholder for the previous output
+Expand Property
+  Get-Process |Select-Object -ExpandProperty name
+    Eliminated headers in output
+Display the start time of the earliest and latest running processes
+    Get-Process | select name,StartTime | sort -Property starttime 
+Identify a cmdlet that returns the current date and time then using this cmdlet and Select-object, display only the current day of the week
+    Date | select-Object -Property dayofweek
+Identify a cmdlet that displays a list of installed hotfixes.
+    Get-Hotfix
+Extend the expression to sort the list by install date, and display only the install date and hotfix ID.
+    Get-HotFix | select InstalledOn, HotFixID | Sort-Object -Property InstalledOn
+Extend the expression further, but this time sort by description, include description, hotfix ID, and install Date.
+    Get-HotFix | select Description, InstalledOn, HotFixID | Sort-Object -Property Description
+
+
+
+
