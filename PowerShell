@@ -71,6 +71,35 @@ Simple ForEach
     $sum
 Compare the Length and name of the two variables 
     Compare-Object $before $after -Property Length, Name 
-    
-
-
+Object creation 
+    $MyTruck = New-Object object
+Adding Proporties 
+    Add-Member -MemberType NoteProperty -Name Color -Value Black -InputObject $MyTruck
+    Add-Member -Me NoteProperty -in $MyTruck -Na Make -Value Ford 
+    Add-Member -InputObject $MyTruck NoteProperty Model "F-250"
+Adding methods 
+    Add-Member -MemberType ScriptMethod -InputObject $MyTruck -Name Drive -Value { "Hittin a Roadtrip" }
+    Add-Member -InputObject $MyTruck ScriptMethod Accelerate { "Hit the loud pedal" }
+    $MyTruck | Add-Member ScriptMethod Park { " Get in the spot bozo" } 
+      $mytruck.[method]() 
+RegEx example 
+    $text = "Your account username is ACE4495"
+    $pattern = '([A-F]{3}(\d{4}))'
+    $text -match $pattern
+If Statement 
+    $x = 6
+    if ($x -eq 5) {
+        Write-Host "Bob"
+    }
+    elseif ($x -eq 4) {
+        Write-Host "Sue"
+    }
+    elseif ($x -eq 2) {
+        Write-Host "Tom"
+    }
+    elseif ($x -gt 6) { 
+        Write-Host "Mary"
+    }
+    else {
+        Write-Host "Who am I"
+    }
