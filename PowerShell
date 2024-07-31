@@ -206,3 +206,57 @@ $Matches $PSitem $input
         End{$sum}
     
     }
+```
+#Create an advanced function using Begin, Process, End, that prompts the user to enter the names of three(3) 
+#U.S. States then returns the names of the states in the order of \
+#longest name to shortest name and the amount of characters in each name.
+
+    function get-longname{
+        Begin{
+            $count = 0 #keep track of how many states entered
+            $states = @()
+            }
+        process{
+    
+            while($count -lt 3){
+                $usr = Read-Host "Enter A State"
+                $states += $usr #appends user input to states
+                $count += 1 
+                }
+        
+        
+        
+        
+        }
+        End{
+        $list = $states | sort -Property Length -Descending
+        Foreach($state in $list){
+            "$state`:" + $state.length 
+            }
+        }
+    }
+```
+#Create a function that extracts your current IP, Subnet and Gateway and outputs them in the following format:
+    function Get-netInfo{
+        $pattern = '.*?((\d{1,3}\.){3}\d{1,3})'#Shitty RehEx ip finder
+        $netinfo = ipconfig
+        $ip = $netinfo -match "IPv4$pattern" | ForEach-Object{if ($_ -match $pattern){$Matches[1]}}
+        $subnet =  $netinfo -match "Subnet$pattern" | ForEach-Object{if ($_ -match $pattern){$Matches[1]}}
+        $gateway = $netinfo -match "Gateway$pattern" | ForEach-Object{if ($_ -match $pattern){$Matches[1]}}
+        "IP: {0}`nSubnet: {1}`nGateway: {2}" -f $ip,$subnet,$gateway #formatting output 
+
+
+}
+```
+#Create a function that extracts all the URLs found in the file "dns.txt" and outputs URLs, the amount of times the URL is found in the file and the total amount of URLs found.
+
+
+    function Get-URLinfo{
+        $file = Get-Content .\dns.txt
+        $regex = '([a-zA-Z0-9\-\.]+\.(com|org|net))'
+        foreach($line in $file){
+            if($line -match $regex) {
+                $Matches
+                }
+            }
+        }
