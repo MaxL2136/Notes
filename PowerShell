@@ -148,7 +148,7 @@ ForEach Examples
 While Statements 
     $var = ""
     while($var -ne "MUHTH"){
-        $var = Read-Host " what branch in the military is the best" 
+        $var = Read-Host " what branch in the military is the st" 
         }
     ```
     #While goes until true 
@@ -176,5 +176,33 @@ Writing to a file
 Reading a file 
     Get-Content .\example.txt
 Adding to a file 
-  add-content .\example.txt -Value "Kms" 
+  add-content .\example.txt -Value "Kms"
 ---------------------------------------------------------------------------------------------------DAY 3--------------------------------------------------------------------------------------------------------------------------
+#"elements provided on the pipeline"
+
+function print-psitem{
+    Begin{}
+    Process{foreach($i in $PSItem){$i}}
+    End{}
+}
+```
+$Matches $PSitem $input
+  Important automatic variables 
+```
+#Create an advanced function using Begin, Process, and End, that takes two(2) arguments. The first argument being an array of at least ten(10) integers and the second argument being a single integer. Search the array argument for 
+#every occurrence of the single integer argument then return the sum of all elements in the array excluding every occurrence of the single integer argument.
+
+
+    function get-multisum([array]$array, [int]$number){
+        Begin{$sum = 0}
+        process{
+            foreach($num in $array){
+                if ($num -eq $number){
+                    continue
+                    }
+                    $sum += $num
+                }
+        }
+        End{$sum}
+    
+    }
