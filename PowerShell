@@ -384,4 +384,5 @@ function q10 ($filepath,$lasthash) {
        return (Get-FileHash -Path $filepath -Algorithm SHA256).hash -ne $lasthash
         
 }
+\b[^\s]+\.d\b
 
