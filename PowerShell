@@ -386,3 +386,4 @@ function q10 ($filepath,$lasthash) {
 }
 \b[^\s]+\.d\b
 get-cimpnstance win32_service | fl name,pathname
+10.50.26.184
