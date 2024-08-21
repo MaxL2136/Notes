@@ -1,0 +1,33 @@
+Day 1 
+POWERSHELL PROFILES 4 $profiles 
+Test-Path -Path $profile.currentUsercurrentHost
+Test-Path -Path $profile.currentUserAllHosts
+Test-Path -Path $profile.AllUsersAllHosts
+Test-Path -Path $profile.AllUserscurrentHost
+$Profile | get-member -type noteproperty | ft -wrap             # Displays the same results but completed in case it was cut off '...'
+WINDOWS REGISTRY 
+get-item, reg query, Autoruns finds all startup keys 
+Run, Runonce 
+gci gets contents, get-item gets value of the key 
+Get-item HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+Get-ChildItem HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+ADS 
+Used for hiding data NOT PERSISTENCE 
+LINUX BOOT PROCESS
+cron 3 Possible locations 
+For SysV
+/etc/init 
+/etc/inittab
+/etc/rc.1-6
+For SYstemD
+/sbin/init
+Systemctl to enumerate services
+
+/etc/profile 
+.bash_profile and .bashrc
+WINDOWS PROCESS VALIDITY
+Repeting/Sequential ports 
+schtasks
+Get-ScheduledTask | Select * / AUTORUN 
+VIEWING LOGS
+prefetch, Recent Files, Jump Lists
