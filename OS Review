@@ -31,3 +31,7 @@ schtasks
 Get-ScheduledTask | Select * / AUTORUN 
 VIEWING LOGS
 prefetch, Recent Files, Jump Lists
+WINIP 
+10.50.23.122
+LINIP
+10.50.43.19
