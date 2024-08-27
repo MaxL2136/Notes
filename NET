@@ -1,0 +1,5 @@
+Student#: student12
+
+Command: ssh student@10.50.31.120 -X
+
+Password: password
