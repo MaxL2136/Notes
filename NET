@@ -3,3 +3,42 @@ Student#: student12
 Command: ssh student@10.50.31.120 -X
 
 Password: password
+User Space Sockets
+
+    Stream socket - TCP
+
+    Datagram socket - UDP
+RAW Socket used for pcap, takes all traffic
+TCPDUMP 
+    -A = print payload in ASCII
+
+    -D = list interfaces
+
+    -i = specify capture interface
+
+    -e = print data-link headers
+
+    -X or XX = print payload in HEX and ASCII
+
+Basic TCPDump options
+
+    -w = write to pcap
+
+    -r = read from pcap
+
+    -v, vv, or vvv = verbosity
+
+    -n = no inverse lookups
+
+Logical Operators
+
+    Primitives may be combined using:
+
+        Concatenation: 'and' ( && )
+
+        Alteration: 'or' ( || )
+
+        Negation: 'not' ( ! )
+
+-d, debugger mode, deconstructs what a partiular filter is doing 
+xxd -r file-encoded.txt file-decoded.txt decode a file using hex
