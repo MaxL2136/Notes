@@ -76,3 +76,46 @@ NETCAT UDP Scan Script
         done
 NETCAT Bannar Grab
         nc 172.16.82.106 22 | -u for udp
+ss -ntlp | new netstat
+FIND COMMANDS
+        find / -iname hint* 2> /dev/null
+        find / -iname flag* 2> /dev/null
+NET RECON METHODOLOGY 
+    -Host Discovery
+        Ruby Ping sweep
+            for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done
+        Nmap scan if no ping 
+    -Port Discovery 
+        nmap
+        nc scan script 
+    -Port Validation 
+        Bannar grab using nc [ipaddr] [port]
+    -Follow on based on ports found 
+        if 21 or 80 wget -r [IPADDR] or wget -r ftp://[IPADDR]
+        if 22 or 23 Connect and get Passive recon 
+        if no 22 and 23 but you have 21 
+            FTP [ipaddr]
+            ls | get [filename]
+SCAN METHODOLOGY 
+    nmap -Pn [IPADDR] -T4 -p 21-23,80
+        Quick scan ports 21-23 80 
+        which tcpdump wireshark nmap telnet get curl ping 
+
+PASSIVE RECON METHODOLOGY
+    hostname 
+    Permissions
+        sudo -l
+    interfaces and subnets 
+        ip a 
+        show interface (vyos)
+    neigbhors 
+        ip neigh
+    Route table
+        ip route
+        show ip route(vyos)
+    Files of Intrist 
+        find / -iname flag*
+    listening ports
+        ss -ntlp
+
+        
