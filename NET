@@ -141,5 +141,39 @@ Common iptable options
 -d - Specifies the destination IP
 -j - Specifies the jump target action
 
+CHANGE DEFAULT POLICY TO ACCEPT BEFORE FLUSHING RULES
 
-        
+iptables -t [table] -A [chain] [rules] -j [action]
+
+-i [ iface ]
+
+-o [ iface ]
+
+-s [ ip.add | network/CIDR ]
+
+-d [ ip.add | network/CIDR ]
+
+    -m to enable iptables extensions:
+
+-m state --state NEW,ESTABLISHED,RELATED,UNTRACKED,INVALID
+NFT RULES 
+CREATE CHAIN
+nft add chain [family] [table] [chain] { type [type] hook [hook]
+    priority [priority] \; policy [policy] \;}
+CREATE RULE
+nft add rule [family] [table] [chain] [matches (matches)] [statement]
+
+ip [ saddr | daddr { ip | ip1-ip2 | ip/CIDR | ip1, ip2, ip3 } ]
+
+tcp flags { syn, ack, psh, rst, fin }
+
+tcp [ sport | dport { port1 | port1-port2 | port1, port2, port3 } ]
+
+udp [ sport| dport { port1 | port1-port2 | port1, port2, port3 } ]
+
+icmp [ type | code { type# | code# } ]
+467accfb25050296431008a1357eacb1_9f7a33941828bdafd2755fd20176cdf4_05e5fb96e2a117e01fc1227f1c4d664c
+d3b88e04de1e76482a1972f36734a7d8
+
+
+0c2ca80fad4accccce3bcecec1d238ce_be33fe60229f8b8ee22931a3820d30ac
