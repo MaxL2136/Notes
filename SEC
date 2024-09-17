@@ -22,3 +22,5 @@ ssh -MS /tmp/t1 creds@127.0.0.1 -p 3333
 ssh -S /tmp/t1 -O forward -L 6666:192.168.50.10:22 -L 7777:192.168.50.20:22
 #SSH Connect new socket to .20
 ssh -MS /tmp/t2 creds@127.0.0.1 -p 7777
+------------------------------------------------------------------
+NMAP Script location /usr/share/nmap/scripts
