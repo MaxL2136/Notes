@@ -6,11 +6,11 @@ ssh -S /tmp/jump jump -O forward -L 21205:192.168.28.120:4242
 Password: YourTempPassword
 # Ping Sweep on .120
 for i in {225..254}; do (ping -c 1 192.168.150.$i | grep "bytes from" &) ; done
-64 bytes from 192.168.150.225: icmp_seq=1 ttl=64 time=6.77 ms
-64 bytes from 192.168.150.227: icmp_seq=1 ttl=63 time=4.53 ms
-64 bytes from 192.168.150.226: icmp_seq=1 ttl=63 time=6.13 ms
-64 bytes from 192.168.150.245: icmp_seq=1 ttl=127 time=8.69 ms
-64 bytes from 192.168.150.253: icmp_seq=1 ttl=63 time=1.22 ms
+        64 bytes from 192.168.150.225: icmp_seq=1 ttl=64 time=6.77 ms
+        64 bytes from 192.168.150.227: icmp_seq=1 ttl=63 time=4.53 ms
+        64 bytes from 192.168.150.226: icmp_seq=1 ttl=63 time=6.13 ms
+        64 bytes from 192.168.150.245: icmp_seq=1 ttl=127 time=8.69 ms
+        64 bytes from 192.168.150.253: icmp_seq=1 ttl=63 time=1.22 ms
 #Close old dynamic
 ssh -S /tmp/jump jump -O cancel -D 9050
 #Create Socket to .120
@@ -19,51 +19,51 @@ ssh -MS /tmp/120 127.0.0.1 -p 21205
 ssh -S /tmp/120 120 -O forward -D 9050
 #Nmap scan open hosts
 proxychains nmap 192.168.150.245,225,226,253
-Nmap scan report for 192.168.150.225
-Host is up (0.00066s latency).
-All 1000 scanned ports on 192.168.150.225 are closed
-
-Nmap scan report for 192.168.150.226
-Host is up (0.00083s latency).
-Not shown: 999 closed ports
-PORT   STATE SERVICE
-53/tcp open  domain
-
-Nmap scan report for 192.168.150.245
-Host is up (0.00084s latency).
-Not shown: 995 closed ports
-PORT     STATE SERVICE
-135/tcp  open  msrpc
-139/tcp  open  netbios-ssn
-445/tcp  open  microsoft-ds
-3389/tcp open  ms-wbt-server
-9999/tcp open  abyss
-
-Nmap scan report for 192.168.150.253
-Host is up (0.00076s latency).
-Not shown: 998 closed ports
-PORT    STATE SERVICE
-80/tcp  open  http
-514/tcp open  shell
+          Nmap scan report for 192.168.150.225
+          Host is up (0.00066s latency).
+          All 1000 scanned ports on 192.168.150.225 are closed
+          
+          Nmap scan report for 192.168.150.226
+          Host is up (0.00083s latency).
+          Not shown: 999 closed ports
+          PORT   STATE SERVICE
+          53/tcp open  domain
+          
+          Nmap scan report for 192.168.150.245
+          Host is up (0.00084s latency).
+          Not shown: 995 closed ports
+          PORT     STATE SERVICE
+          135/tcp  open  msrpc
+          139/tcp  open  netbios-ssn
+          445/tcp  open  microsoft-ds
+          3389/tcp open  ms-wbt-server
+          9999/tcp open  abyss
+          
+          Nmap scan report for 192.168.150.253
+          Host is up (0.00076s latency).
+          Not shown: 998 closed ports
+          PORT    STATE SERVICE
+          80/tcp  open  http
+          514/tcp open  shell
 #Use SMB script on .245
 proxychains nmap 192.168.150.245 --script=smb-os-discovery
-Nmap scan report for 192.168.150.245
-Host is up (0.00089s latency).
-Not shown: 995 closed ports
-PORT     STATE SERVICE
-135/tcp  open  msrpc
-139/tcp  open  netbios-ssn
-445/tcp  open  microsoft-ds
-3389/tcp open  ms-wbt-server
-9999/tcp open  abyss
-
-Host script results:
-| smb-os-discovery: 
-|   OS: Windows 10 Enterprise 17134 (Windows 10 Enterprise 6.3)
-|   OS CPE: cpe:/o:microsoft:windows_10::-
-|   Computer name: o79kclb6P3tgUkL9XKjr
-|   NetBIOS computer name: O79KCLB6P3TGUKL\x00
-|   Workgroup: WORKGROUP\x00
-|_  System time: 2024-09-17T19:45:11+00:00
-
-
+          Nmap scan report for 192.168.150.245
+          Host is up (0.00089s latency).
+          Not shown: 995 closed ports
+          PORT     STATE SERVICE
+          135/tcp  open  msrpc
+          139/tcp  open  netbios-ssn
+          445/tcp  open  microsoft-ds
+          3389/tcp open  ms-wbt-server
+          9999/tcp open  abyss
+          
+          Host script results:
+          | smb-os-discovery: 
+          |   OS: Windows 10 Enterprise 17134 (Windows 10 Enterprise 6.3)
+          |   OS CPE: cpe:/o:microsoft:windows_10::-
+          |   Computer name: o79kclb6P3tgUkL9XKjr
+          |   NetBIOS computer name: O79KCLB6P3TGUKL\x00
+          |   Workgroup: WORKGROUP\x00
+          |_  System time: 2024-09-17T19:45:11+00:00
+          
+          
