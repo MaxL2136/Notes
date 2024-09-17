@@ -1,3 +1,6 @@
-Stack Number     Username          Password
-12               MALY-006-M        0pRqxfAB3sOlp2Q
+Stack Number     Username          Password             Jump Box
+12               MALY-006-M        0pRqxfAB3sOlp2Q      10.50.29.236
 Bash IP: 10.50.40.70 Win IP: 10.50.25.180, ssh student@10.50.40.70 -X, terminator
+### NEW TUNNEL ###
+#SET CONNECTION TO JUMP BOX
+ssh -MS /tmp/jump student@10.50.29.236
