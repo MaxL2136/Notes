@@ -1,1 +1,14 @@
-
+web server on .111
+ssh -S /tmp/jump jump -O forward -L 21200:192.168.28.111:80
+ssh -S /tmp/jump jump -O forward -L 21201:192.168.28.111:8080
+#SSH Access to .120
+ssh -S /tmp/jump jump -O forward -L 21205:192.168.28.120:4242
+Password: YourTempPassword
+# Ping Sweep on .120
+for i in {225..254}; do (ping -c 1 192.168.150.$i | grep "bytes from" &) ; done
+64 bytes from 192.168.150.225: icmp_seq=1 ttl=64 time=6.77 ms
+64 bytes from 192.168.150.227: icmp_seq=1 ttl=63 time=4.53 ms
+64 bytes from 192.168.150.226: icmp_seq=1 ttl=63 time=6.13 ms
+64 bytes from 192.168.150.245: icmp_seq=1 ttl=127 time=8.69 ms
+64 bytes from 192.168.150.253: icmp_seq=1 ttl=63 time=1.22 ms
+#Dynamic to .120
