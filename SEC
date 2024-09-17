@@ -24,3 +24,7 @@ ssh -S /tmp/t1 -O forward -L 6666:192.168.50.10:22 -L 7777:192.168.50.20:22
 ssh -MS /tmp/t2 creds@127.0.0.1 -p 7777
 ------------------------------------------------------------------
 NMAP Script location /usr/share/nmap/scripts
+Banner grab
+nmap --script=banner
+HTTP Info 
+--script=http-enum.nse
