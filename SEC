@@ -4,3 +4,10 @@ Bash IP: 10.50.40.70 Win IP: 10.50.25.180, ssh student@10.50.40.70 -X, terminato
 ### NEW TUNNEL ###
 #SET CONNECTION TO JUMP BOX
 ssh -MS /tmp/jump student@10.50.29.236
+# Ping sweep from jump box
+for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &) ; done
+192.168.28.97,98,100,105
+#From lin-ops Dynamic tunnel
+ssh -S /tmp/jump jump -O forward -D 9050 
+# Scan found IPs 
+proxychains nmap 192.168.28.97,98,100,105,111
