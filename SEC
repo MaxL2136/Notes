@@ -31,3 +31,9 @@ HTTP Info
 --------------------------------------------------------------DAY2--------------------------------
 #GET request can be utilized to pass data to the server using the URL string
 http://10.50.x.x/path/pathdemo.php?myfile=demo1
+#Robots.txt is used to give and take permissions to a web scraper
+http://10.50.28.11/robots.txt
+#Robots.txt, Then legit surf, then use NSE scripts, Finally use Nikto
+#Stored XSS Example 
+<img src="http://invalid" onerror="window.open('http://10.50.XX.XX:8000/ram.png','xss','height=1,width=1');">
+
