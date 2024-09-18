@@ -28,3 +28,6 @@ Banner grab
 nmap --script=banner
 HTTP Info 
 --script=http-enum.nse
+--------------------------------------------------------------DAY2--------------------------------
+#GET request can be utilized to pass data to the server using the URL string
+http://10.50.x.x/path/pathdemo.php?myfile=demo1
