@@ -191,5 +191,7 @@ UNION SELECT GOLDEN SEARCH
 UNION SELECT ...,...,...(@@version used for SQL ver) from sqlinjection.share4/members/payments 
 #SearchProducts is vulnerable to POST SQL injection 
 'OR 1='1
+#VC-096-ULTIMATE is vulnerable item 
+#ON Register page First Name Field is vulnerable to Injection
 
 
