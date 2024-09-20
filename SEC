@@ -83,3 +83,21 @@ UNION SELECT table_schema,column_name,table_name from information_schema.columns
 #continue on using same stratagy as POST 
 UNION SELECT cost,color,year from session.car
 #@@version as a selection shows the version of the SQL server
+------------------------------------------------DAY 3---------------------------------------
+Stack First in Last out 
+### Example Assembily
+  1 main:
+  2  mov rax, 16        //move into rax the value of 16
+  3  push rax           //push the value of rax (16) onto the stack. stack grows by 8 bytes.
+  4  jmp mem2           //jump to mem2 function
+  5  
+  6 mem1:
+  7  mov rax, 8         //move into rax the value of 8
+  8  ret                //return the contents of the first return register (8)
+  9  
+ 10 mem2:
+ 11  pop r8             //pop the value at the top of the stack (16)  into r8
+ 12  cmp rax, r8        //compare to the value of rax (16) the value of r8 (16) they are equal zero flag is set
+ 13  je mem1            //zero flag from last instruction is set. jump to mem1 function
+###                                                                                        
+
