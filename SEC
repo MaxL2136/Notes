@@ -96,8 +96,41 @@ Stack First in Last out
   8  ret                //return the contents of the first return register (8)
   9  
  10 mem2:
- 11  pop r8             //pop the value at the top of the stack (16)  into r8
+ 11  pop r8             //pop the value at the top of the stack (16)  into r8, stack shrinks 8 bytes
  12  cmp rax, r8        //compare to the value of rax (16) the value of r8 (16) they are equal zero flag is set
  13  je mem1            //zero flag from last instruction is set. jump to mem1 function
-###                                                                                        
+### 
+### Anotha One 
+  1 main:
+  2  mov rcx, 25        //movie into rcx the value of 25
+  3  mov rbx, 62        //move into rbx the value of 62
+  4  jmp mem1           //jump to mem1 function
+  5  
+  6 mem1:
+  7  sub rbx, 40        //subtract from rbx the value of 40, rbx is now 22
+  8  mov rsi, rbx       //move into rsi the value of rbx (22). rsi is now 22
+  9  cmp rcx, rsi       //compare to the value of rcx (25) the value of rsi (22). flag indicating less than is set.
+ 10  jle mem2           //rsi is less than rcx, jump to mem2 function
+ 11  
+ 12 mem2:
+ 13  mov rax, 0         //move into rax the value of 0
+ 14  ret                //return the contents of rax (0) success
+###
+-Reverse Engineering Workflow
+    Static
 
+    Behavioral
+
+    Dynamic
+
+    Disassembly
+
+    Document Findings
+### DEMO1
+#On Powershell Look at human readable Strings
+Y:\strings.exe .\demo1_new.exe
+#View first bytes of the exe
+Get-Content -First 2 .\demo1_new.exe
+#Open Ghidra Analyse, search for strings 
+#Look at refrences for found strings param_1 is user input
+#Right click to patch for success
