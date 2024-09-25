@@ -134,3 +134,5 @@ Get-Content -First 2 .\demo1_new.exe
 #Open Ghidra Analyse, search for strings 
 #Look at refrences for found strings param_1 is user input
 #Right click to patch for success
+### SEARCH FOR WIN
+!mona jmp -r ESP -m "essfunc.dll"
