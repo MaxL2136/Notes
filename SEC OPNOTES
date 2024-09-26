@@ -87,7 +87,7 @@ DEMO
         Disallow: /
         
         
-        User-agent: Baiduspider
+        User-agent: Baiduser
         Disallow: /
 #From Surfing 
 -Can upload file
